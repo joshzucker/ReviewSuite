@@ -1,0 +1,47 @@
+	#banner {
+		/*background-attachment: scroll, scroll, scroll, fixed;
+		background-color: #645862;
+		background-image: url("../../../content/images/light-bl.svg"), url("../../../content/images/light-br.svg"), url("../../../content/images/overlay.png"), url("../../../content/images/banner.jpg");
+		/*background-image: url("../../../content/images/banner.jpg");*/
+		/*background-position: bottom left, bottom right, top left, top center;
+		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+		background-size: 25em, 25em, auto, cover;
+		color: #fff;
+		cursor: default;
+		padding: 2em 6em 6em 6em;
+		text-align: center;*/
+		
+		width: 100%;
+  background-image: url("../../../content/images/backgrounds/1.jpg");
+   background-repeat: no-repeat;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+ position: relative;
+	}
+
+		#banner .inner {
+			-moz-animation: reveal-banner 1s 0.25s ease-in-out;
+			-webkit-animation: reveal-banner 1s 0.25s ease-in-out;
+			-ms-animation: reveal-banner 1s 0.25s ease-in-out;
+			animation: reveal-banner 1s 0.25s ease-in-out;
+			-moz-animation-fill-mode: forwards;
+			-webkit-animation-fill-mode: forwards;
+			-ms-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+			background: rgba(52, 27, 43, 0.3);
+			color: #fff;
+			display: inline-block;
+			padding: 3em;
+			margin-top:5em;
+			text-align: center;
+		}
+		#banner .inner a{
+		color: #fff;
+		
+		}

@@ -1,0 +1,55 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "customer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateSent",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dateReceived",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "reviewId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isReview1EmailClicked",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isReview2EmailClicked",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170508142754",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "customer",
+    "pagination": "infinite-scroll",
+    "angularJSSuffix": "mySuffix"
+}

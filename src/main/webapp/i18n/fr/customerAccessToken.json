@@ -1,0 +1,24 @@
+{
+    "reviewmanager4App": {
+        "customerAccessToken" : {
+            "home": {
+                "title": "CustomerAccessTokens",
+                "createLabel": "Créer un nouveau Customer Access Token",
+                "createOrEditLabel": "Créer ou éditer un Customer Access Token"
+            },
+            "created": "Un nouveau Customer Access Token a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Customer Access Token avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Customer Access Token avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Customer Access Token {{ id }} ?"
+            },
+            "detail": {
+                "title": "Customer Access Token"
+            },
+            "expiryDate": "Expiry Date",
+            "token": "Token",
+            "user": "User",
+            "customer": "Customer"
+        }
+    }
+}

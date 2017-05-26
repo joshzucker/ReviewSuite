@@ -1,0 +1,23 @@
+{
+    "reviewmanager4App": {
+        "link" : {
+            "home": {
+                "title": "Links",
+                "createLabel": "Create a new Link",
+                "createOrEditLabel": "Create or edit a Link"
+            },
+            "created": "A new Link is created with identifier {{ param }}",
+            "updated": "A Link is updated with identifier {{ param }}",
+            "deleted": "A Link is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Link {{ id }}?"
+            },
+            "detail": {
+                "title": "Link"
+            },
+            "url": "Url",
+            "type": "Type",
+            "user": "User"
+        }
+    }
+}

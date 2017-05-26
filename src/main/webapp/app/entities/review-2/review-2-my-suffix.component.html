@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="reviewmanager4App.review2.home.title">Review 2 S</span>
+        <button class="btn btn-primary float-right create-review-2-my-suffix" [routerLink]="['/', { outlets: { popup: ['review-2-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="reviewmanager4App.review2.home.createLabel">
+            Create new Review 2
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="review2S">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.firstName">First Name</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.lastName">Last Name</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.dateWritten">Date Written</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.token">Token</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.custExperiece">Cust Experiece</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.user">User</span></th>
+            <th><span jhiTranslate="reviewmanager4App.review2.customer">Customer</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let review2 of review2S ;trackBy: trackId">
+                <td><a [routerLink]="['../review-2-my-suffix', review2.id ]">{{review2.id}}</a></td>
+                <td>{{review2.firstName}}</td>
+                <td>{{review2.lastName}}</td>
+                <td>{{review2.dateWritten | date:'medium'}}</td>
+                <td>{{review2.token}}</td>
+                <td>{{review2.custExperiece}}</td>
+                <td>
+                    {{review2.user?.login}}
+                </td>
+                <td>
+                    <div *ngIf="review2.customer">
+                        <a [routerLink]="['../customer-my-suffix', review2.customer?.id ]" >{{review2.customer?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../review-2-my-suffix', review2.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'review-2-my-suffix/'+ review2.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'review-2-my-suffix/'+ review2.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

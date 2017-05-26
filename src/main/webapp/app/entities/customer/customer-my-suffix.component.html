@@ -1,0 +1,83 @@
+<div>
+    
+    <div id="banner" class="table-responsive" *ngIf="customers">
+    <div class="inner">
+    <h2>
+        <span jhiTranslate="reviewmanager4App.customer.home.title">Customers</span>
+        <button class="btn btn-primary float-right create-customer-my-suffix" [routerLink]="['/', { outlets: { popup: ['customer-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="reviewmanager4App.customer.home.createLabel">
+            Create new Customer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    
+    
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th *jhiHasAnyAuthority="['ROLE_ADMIN']" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="reviewmanager4App.customer.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="email"><span jhiTranslate="reviewmanager4App.customer.email">Email</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateSent"><span jhiTranslate="reviewmanager4App.customer.dateSent">Date Sent</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dateReceived"><span jhiTranslate="reviewmanager4App.customer.dateReceived">Date Received</span> <span class="fa fa-sort"></span></th>
+            <th *jhiHasAnyAuthority="['ROLE_ADMIN']" jhiSortBy="reviewId"><span jhiTranslate="reviewmanager4App.customer.reviewId">Review Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isReview1EmailClicked"><span jhiTranslate="reviewmanager4App.customer.isReview1EmailClicked">Is Review 1 Email Clicked</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isReview2EmailClicked"><span jhiTranslate="reviewmanager4App.customer.isReview2EmailClicked">Is Review 2 Email Clicked</span> <span class="fa fa-sort"></span></th>
+            <th *jhiHasAnyAuthority="['ROLE_ADMIN']" jhiSortBy="user.login"><span jhiTranslate="reviewmanager4App.customer.user">User</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let customer of customers ;trackBy: trackId">
+                <td *jhiHasAnyAuthority="['ROLE_ADMIN']"><a [routerLink]="['../customer-my-suffix', customer.id ]">{{customer.id}}</a></td>
+                <td>{{customer.name}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.dateSent | date:'medium'}}</td>
+                <td>{{customer.dateReceived | date:'medium'}}</td>
+                <td *jhiHasAnyAuthority="['ROLE_ADMIN']">{{customer.reviewId}}</td>
+                <td>{{customer.isReview1EmailClicked}}</td>
+                <td>{{customer.isReview2EmailClicked}}</td>
+                <td *jhiHasAnyAuthority="['ROLE_ADMIN']">
+                    {{customer.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button *ngIf="(customer.isReview1EmailClicked==true) && (customer.dateReceived != null)" type="submit"
+                                [routerLink]="['../review-1-my-suffix', customer.reviewId ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="global.menu.entities.review1MySuffix">Review 1</span>
+                        </button>
+                         <button *ngIf="(customer.isReview2EmailClicked==true) && (customer.dateReceived != null)" type="submit"
+                                [routerLink]="['../review-2-my-suffix', customer.reviewId ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="global.menu.entities.review2MySuffix">Review 2</span>
+                        </button>
+                        <button  *jhiHasAnyAuthority="['ROLE_ADMIN']" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button *jhiHasAnyAuthority="['ROLE_ADMIN']" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>

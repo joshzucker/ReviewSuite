@@ -1,0 +1,11 @@
+{
+    "reviewmanager4App": {
+        "SocialLinks" : {
+            "null": "",
+            "GOOGLE": "GOOGLE",
+            "FACEBOOK": "FACEBOOK",
+            "YELP": "YELP",
+            "RATEMD": "RATEMD"
+        }
+    }
+}

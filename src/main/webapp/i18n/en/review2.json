@@ -1,0 +1,27 @@
+{
+    "reviewmanager4App": {
+        "review2" : {
+            "home": {
+                "title": "Review 2 S",
+                "createLabel": "Create a new Review 2",
+                "createOrEditLabel": "Create or edit a Review 2"
+            },
+            "created": "A new Review 2 is created with identifier {{ param }}",
+            "updated": "A Review 2 is updated with identifier {{ param }}",
+            "deleted": "A Review 2 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Review 2 {{ id }}?"
+            },
+            "detail": {
+                "title": "Review 2"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "dateWritten": "Date Written",
+            "token": "Token",
+            "custExperiece": "Cust Experiece",
+            "user": "User",
+            "customer": "Customer"
+        }
+    }
+}

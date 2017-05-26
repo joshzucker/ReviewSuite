@@ -1,0 +1,58 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCustomerAccessTokenLabel" jhiTranslate="reviewmanager4App.customerAccessToken.home.createOrEditLabel">Create or edit a Customer Access Token</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!customerAccessToken.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="customerAccessToken.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.customerAccessToken.expiryDate" for="field_expiryDate">Expiry Date</label>
+            <div class="d-flex">
+                <input id="field_expiryDate" type="datetime-local" class="form-control" name="expiryDate" [(ngModel)]="customerAccessToken.expiryDate"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.customerAccessToken.token" for="field_token">Token</label>
+            <input type="text" class="form-control" name="token" id="field_token"
+                [(ngModel)]="customerAccessToken.token"
+            required />
+            <div [hidden]="!(editForm.controls.token?.dirty && editForm.controls.token?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.token?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="reviewmanager4App.customerAccessToken.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="customerAccessToken.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === customerAccessToken.user?.id ? customerAccessToken.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="reviewmanager4App.customerAccessToken.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="customerAccessToken.customer">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id === customerAccessToken.customer?.id ? customerAccessToken.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

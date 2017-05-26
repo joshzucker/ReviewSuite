@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Josh (generated)" id="1494339404925-1">
+        <addColumn tableName="customer_access_token">
+            <column name="customer_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-2">
+        <addColumn tableName="review_1">
+            <column name="customer_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-3">
+        <addColumn tableName="review_2">
+            <column name="customer_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-4">
+        <addColumn tableName="customer">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-5">
+        <addColumn tableName="customer_access_token">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-6">
+        <addColumn tableName="link">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-7">
+        <addColumn tableName="review_1">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494339404925-8">
+        <addColumn tableName="review_2">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,53 @@
+
+// an ignored comment
+/** not an ignored comment */
+entity Link {
+	url String required,
+    type SocialLinks required,
+}
+
+enum SocialLinks{GOOGLE,FACEBOOK,YELP,RATEMD}
+		
+entity Customer {
+    name  String required,
+    email String required ,
+    dateSent ZonedDateTime,
+    dateReceived ZonedDateTime,
+    reviewId Long,
+    isReview1EmailClicked Boolean,
+    isReview2EmailClicked Boolean,
+}
+
+entity Review1 {
+    rating  Integer,
+    dateWritten ZonedDateTime,
+    token  String required,
+    selectedLink String required,
+}
+
+entity Review2 {
+    firstName  String required maxlength(15) minlength(1),
+    lastName String required maxlength(15) minlength(1),
+    dateWritten ZonedDateTime,
+    custExperience Blob required,
+    token  String required,
+}
+
+entity CustomerAccessToken {
+    expiryDate ZonedDateTime,
+    token  String required,
+}
+
+
+
+
+
+
+
+// Set pagination options
+paginate Customer with infinite-scroll
+
+// Set service options to all except few
+service Customer with serviceClass
+// Set an angular suffix
+angularSuffix * with mySuffix

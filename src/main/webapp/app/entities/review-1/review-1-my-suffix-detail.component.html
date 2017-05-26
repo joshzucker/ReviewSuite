@@ -1,0 +1,47 @@
+
+<div *ngIf="review1">
+    <h2><span jhiTranslate="reviewmanager4App.review1.detail.title">Review 1</span> {{review1.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="reviewmanager4App.review1.rating">Rating</span></dt>
+        <dd>
+            <span>{{review1.rating}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review1.dateWritten">Date Written</span></dt>
+        <dd>
+            <span>{{review1.dateWritten | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review1.token">Token</span></dt>
+        <dd>
+            <span>{{review1.token}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review1.selectedLink">Selected Link</span></dt>
+        <dd>
+            <span>{{review1.selectedLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review1.user">User</span></dt>
+        <dd>
+            {{review1.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review1.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="review1.customer">
+                <a [routerLink]="['/customer-my-suffix', review1.customer?.id]">{{review1.customer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'review-1-my-suffix/'+ review1.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

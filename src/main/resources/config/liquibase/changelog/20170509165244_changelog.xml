@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Josh (generated)" id="1494348800443-1">
+        <addColumn tableName="review_2">
+            <column name="cust_experiece" type="text">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494348800443-2">
+        <addUniqueConstraint columnNames="customer_id" constraintName="UC_REVIEW_2CUSTOMER_ID_COL" tableName="review_2"/>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494348800443-3">
+        <addUniqueConstraint columnNames="user_id" constraintName="UC_REVIEW_2USER_ID_COL" tableName="review_2"/>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494348800443-4">
+        <dropColumn columnName="cust_experience" tableName="review_2"/>
+    </changeSet>
+    <changeSet author="Josh (generated)" id="1494348800443-5">
+        <dropColumn columnName="cust_experience_content_type" tableName="review_2"/>
+    </changeSet>
+</databaseChangeLog>

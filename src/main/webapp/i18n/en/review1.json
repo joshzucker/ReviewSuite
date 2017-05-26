@@ -1,0 +1,26 @@
+{
+    "reviewmanager4App": {
+        "review1" : {
+            "home": {
+                "title": "Review 1 S",
+                "createLabel": "Create a new Review 1",
+                "createOrEditLabel": "Create or edit a Review 1"
+            },
+            "created": "A new Review 1 is created with identifier {{ param }}",
+            "updated": "A Review 1 is updated with identifier {{ param }}",
+            "deleted": "A Review 1 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Review 1 {{ id }}?"
+            },
+            "detail": {
+                "title": "Review 1"
+            },
+            "rating": "Rating",
+            "dateWritten": "Date Written",
+            "token": "Token",
+            "selectedLink": "Selected Link",
+            "user": "User",
+            "customer": "Customer"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+
+<div *ngIf="customerAccessToken">
+    <h2><span jhiTranslate="reviewmanager4App.customerAccessToken.detail.title">Customer Access Token</span> {{customerAccessToken.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="reviewmanager4App.customerAccessToken.expiryDate">Expiry Date</span></dt>
+        <dd>
+            <span>{{customerAccessToken.expiryDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customerAccessToken.token">Token</span></dt>
+        <dd>
+            <span>{{customerAccessToken.token}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customerAccessToken.user">User</span></dt>
+        <dd>
+            {{customerAccessToken.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customerAccessToken.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="customerAccessToken.customer">
+                <a [routerLink]="['/customer-my-suffix', customerAccessToken.customer?.id]">{{customerAccessToken.customer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-access-token-my-suffix/'+ customerAccessToken.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

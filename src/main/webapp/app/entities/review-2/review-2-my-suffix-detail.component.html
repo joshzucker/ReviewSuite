@@ -1,0 +1,51 @@
+
+<div *ngIf="review2">
+    <h2><span jhiTranslate="reviewmanager4App.review2.detail.title">Review 2</span> {{review2.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="reviewmanager4App.review2.firstName">First Name</span></dt>
+        <dd>
+            <span>{{review2.firstName}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{review2.lastName}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.dateWritten">Date Written</span></dt>
+        <dd>
+            <span>{{review2.dateWritten | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.token">Token</span></dt>
+        <dd>
+            <span>{{review2.token}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.custExperiece">Cust Experiece</span></dt>
+        <dd>
+            <span>{{review2.custExperiece}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.user">User</span></dt>
+        <dd>
+            {{review2.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.review2.customer">Customer</span></dt>
+        <dd>
+            <div *ngIf="review2.customer">
+                <a [routerLink]="['/customer-my-suffix', review2.customer?.id]">{{review2.customer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'review-2-my-suffix/'+ review2.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,134 @@
+		<div id="page-wrapper">
+			<div [ngSwitch]="isAuthenticated()">
+			<!-- Banner -->
+				<section id="banner">
+					<div class="inner">
+                    		<div  *ngSwitchCase="true">
+                    			<header>		
+										<h2>Dashboard</h2>
+						            <h1 class="display-4" *ngIf="account" jhiTranslate="home.logged.message"
+						                    translateValues="{username: '{{account.login}}'}"> Welcome, "{{account.login}}"</h1>
+						  	
+								<div class = "row">
+										<div class = "col-md-6">  
+							                    <br/>
+													<p><!--[-->Step 1 <!--]--><br /> <strong><!--[-->Select Review platform and Paste Link <!--]--></strong> 		 
+							            <br/>
+												<footer>             
+													<span class="li-social">
+														<a class="btn btn-circle animated create-link-my-suffix"><i class="fa fa-google" [routerLink]="['/', { outlets: { popup: ['link-my-suffix-new'] } }] "></i></a>
+														<a  class="btn btn-circle animated create-link-my-suffix"><i class="fa fa-facebook" [routerLink]="['/', { outlets: { popup: ['link-my-suffix-new'] } }] "></i></a>
+														<a  class="btn btn-circle animated create-link-my-suffix"><i class="fa fa-yelp" [routerLink]="['/', { outlets: { popup: ['link-my-suffix-new'] } } ] "></i></a>
+														<a class="btn btn-circle animated create-link-my-suffix"><i class="fa fa-linkedin" [routerLink]="['/', { outlets: { popup: ['link-my-suffix-new'] } }] "></i></a>
+													</span>
+													 </footer>
+													 <br/>
+							         </div> 
+							         
+											<div class = "col-md-6">  
+							                   
+							                   <br/>
+													<p><!--[-->Step 2 <!--]--><br /> <strong><!--[-->Send Customers<!--]--></strong>, <!--[-->to your<!--]-->
+													<br />
+													<!--[-->Social Media Reviews<!--]-->
+							            <br/>
+							            <br/>
+									 			
+									           <footer>
+																<ul class="buttons vertical">
+																	<a href="#main" class="button fit scrolly create-customer-my-suffix" [routerLink]="['/', { outlets: { popup: ['customer-my-suffix-new'] } }]"><!--[-->Send email<!--]--></a>
+																</ul>
+															</footer>
+															<br/>
+							         </div>  
+							      </div> 
+							      </header>
+							      <div class = "row">
+							      <div class = "col-md-6">                
+							         </div>
+							         <div class = "col-md-6">  
+							             
+													<a  class="nav-link" routerLink="customer-my-suffix" >
+                    								<i class="fa fa-th-list" aria-hidden="true"></i>
+                    								<span jhiTranslate="global.menu.entities.customerManage"> Customers</span>
+                </a>
+							         </div>
+							      
+							      </div> 
+							            
+							  </div> 
+                    	 <div  *ngSwitchCase="false">
+							<header>
+							                <h2>Review</h2>
+							                <h2>Dashboard</h2>
+							                    <br/>
+													<p><!--[-->Send out and manage <!--]--> <strong><!--[-->Customer Reviews<!--]--></strong>, <!--[-->with our<!--]-->
+													<br />
+													<!--[-->Review dashboard<!--]-->
+							           <footer>					          						
+															<a  (click)="login()" class="button fit scrolly" jhiTranslate="global.menu.account.login"><!--[-->Log In<!--]--></a>
+														
+													</footer>
+
+							            	<br />
+							                <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
+							                <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+						      </header>   
+							  </div> 
+							     
+						</div>         
+				</section>
+			<!-- Main -->
+				<article id="main" *ngSwitchCase="false">
+
+					<header class="special container">
+						<span class="icon fa-bar-chart-o"></span>
+						<h2><!--[-->As this is my<!--]--> <strong><!--[-->twentieth<!--]--></strong> <!--[-->freebie for HTML5 UP<!--]-->
+						<br />
+						<!--[-->I decided to give it a really creative name.<!--]--></h2>
+						<p><!--[-->Turns out <strong>Twenty</strong> was the best I could come up with. Anyway, lame name aside,<!--]-->
+						<br />		
+					</header>
+					<!-- One -->
+						<section class="wrapper style2 container special-alt">
+							<div class="row 50%">
+								<div class="8u 12u(narrower)">
+									<header>
+										<h2><!--[-->Behold the<!--]--> <strong><!--[-->icons<!--]--></strong> <!--[-->that visualize what you’re all about. or just take up space. your call bro.<!--]--></h2>
+									</header>
+									<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="#" class="button">Find Out More</a></li>
+										</ul>
+									</footer>
+								</div>
+								<div class="4u 12u(narrower) important(narrower)">
+									<ul class="featured-icons">
+										<li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
+										<li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
+										<li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
+										<li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
+										<li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
+										<li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+				</article>
+			<!-- CTA -->
+				<section id="cta" *ngSwitchCase="false">
+					<header>
+						<h2><!--[-->Ready to do <strong>something</strong>?<!--]--></h2>
+						<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="#" class="button special"><!--[-->Take My Money<!--]--></a></li>
+							<li><a href="#" class="button"><!--[-->LOL Wut<!--]--></a></li>
+						</ul>
+					</footer>
+				</section>
+			</div>
+		</div>
+		<!-- Scripts -->

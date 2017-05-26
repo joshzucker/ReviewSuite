@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "link"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "url",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "SocialLinks",
+            "fieldValues": "GOOGLE,FACEBOOK,YELP,RATEMD",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170508142753",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "link",
+    "pagination": "no",
+    "javadoc": "not an ignored comment",
+    "angularJSSuffix": "mySuffix"
+}

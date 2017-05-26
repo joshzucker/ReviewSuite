@@ -1,0 +1,53 @@
+
+<div *ngIf="customer">
+    <h2><span jhiTranslate="reviewmanager4App.customer.detail.title">Customer</span> {{customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="reviewmanager4App.customer.name">Name</span></dt>
+        <dd>
+            <span>{{customer.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.email">Email</span></dt>
+        <dd>
+            <span>{{customer.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.dateSent">Date Sent</span></dt>
+        <dd>
+            <span>{{customer.dateSent | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.dateReceived">Date Received</span></dt>
+        <dd>
+            <span>{{customer.dateReceived | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.reviewId">Review Id</span></dt>
+        <dd>
+            <span>{{customer.reviewId}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.isReview1EmailClicked">Is Review 1 Email Clicked</span></dt>
+        <dd>
+            <span>{{customer.isReview1EmailClicked}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.isReview2EmailClicked">Is Review 2 Email Clicked</span></dt>
+        <dd>
+            <span>{{customer.isReview2EmailClicked}}</span>
+        </dd>
+        <dt><span jhiTranslate="reviewmanager4App.customer.user">User</span></dt>
+        <dd>
+            {{customer.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,76 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myReview1Label" jhiTranslate="reviewmanager4App.review1.home.createOrEditLabel">Create or edit a Review 1</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!review1.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="review1.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.review1.rating" for="field_rating">Rating</label>
+            <input type="number" class="form-control" name="rating" id="field_rating"
+                [(ngModel)]="review1.rating"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.review1.dateWritten" for="field_dateWritten">Date Written</label>
+            <div class="d-flex">
+                <input id="field_dateWritten" type="datetime-local" class="form-control" name="dateWritten" [(ngModel)]="review1.dateWritten"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.review1.token" for="field_token">Token</label>
+            <input type="text" class="form-control" name="token" id="field_token"
+                [(ngModel)]="review1.token"
+            required />
+            <div [hidden]="!(editForm.controls.token?.dirty && editForm.controls.token?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.token?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="reviewmanager4App.review1.selectedLink" for="field_selectedLink">Selected Link</label>
+            <input type="text" class="form-control" name="selectedLink" id="field_selectedLink"
+                [(ngModel)]="review1.selectedLink"
+            required />
+            <div [hidden]="!(editForm.controls.selectedLink?.dirty && editForm.controls.selectedLink?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.selectedLink?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="reviewmanager4App.review1.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="review1.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === review1.user?.id ? review1.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="reviewmanager4App.review1.customer" for="field_customer">Customer</label>
+            <select class="form-control" id="field_customer" name="customer" [(ngModel)]="review1.customer">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id === review1.customer?.id ? review1.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+{
+    "reviewmanager4App": {
+        "review1" : {
+            "home": {
+                "title": "Review1S",
+                "createLabel": "Créer un nouveau Review 1",
+                "createOrEditLabel": "Créer ou éditer un Review 1"
+            },
+            "created": "Un nouveau Review 1 a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Review 1 avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Review 1 avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Review 1 {{ id }} ?"
+            },
+            "detail": {
+                "title": "Review 1"
+            },
+            "rating": "Rating",
+            "dateWritten": "Date Written",
+            "token": "Token",
+            "selectedLink": "Selected Link",
+            "user": "User",
+            "customer": "Customer"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "reviewmanager4App": {
+        "customer" : {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Create a new Customer",
+                "createOrEditLabel": "Create or edit a Customer"
+            },
+            "created": "A new Customer is created with identifier {{ param }}",
+            "updated": "A Customer is updated with identifier {{ param }}",
+            "deleted": "A Customer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Customer {{ id }}?"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "name": "Name",
+            "email": "Email",
+            "dateSent": "Date Sent",
+            "dateReceived": "Date Received",
+            "reviewId": "Review Id",
+            "isReview1EmailClicked": "Is Review 1 Email Clicked",
+            "isReview2EmailClicked": "Is Review 2 Email Clicked",
+            "user": "User"
+        }
+    }
+}

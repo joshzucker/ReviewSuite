@@ -1,0 +1,117 @@
+<!--/*
+~ Copyright 2015 Stormpath, Inc.
+~
+~ Licensed under the Apache License, Version 2.0 (the "License");
+~ you may not use this file except in compliance with the License.
+~ You may obtain a copy of the License at
+~
+~     http://www.apache.org/licenses/LICENSE-2.0
+~
+~ Unless required by applicable law or agreed to in writing, software
+~ distributed under the License is distributed on an "AS IS" BASIS,
+~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~ See the License for the specific language governing permissions and
+~ limitations under the License.
+*/-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  <form th:fragment="custForm" th:action="@{/dashboardf2}" th:object="${customer}" method="post" >
+			                    	<div class="form-space"></div>		
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="contact-email">Customer name</label>
+			                        	<input type="text" name="name"  placeholder="Customer name..." class="contact-email form-control" id="contact-email"/>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-subject">Email</label>
+			                        	<input type="text" name="email"  placeholder="Email..." class="contact-subject form-control" id="contact-subject"/>
+			                        </div>
+			                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			                        <div th:text="${status}"></div>
+			                        <button type="submit" class="btn">Send message</button>
+		</form>
+		
+		
+		<form th:fragment="linkForm" th:action="@{/dashboardf1}" th:object="${Link}" method="post" >
+			                    <p>Select Social Media</p>	
+							<span class="li-social">
+								<a href="#"><i class="fa fa-facebook"></i></a> 
+								<a href="#"><i class="fa fa-twitter"></i></a> 
+								<a href="#"><i class="fa fa-envelope"></i></a> 
+								<a href="#"><i class="fa fa-skype"></i></a>
+							</span>
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="contact-email">Add links</label>
+			                        	<input type="text" name="name" placeholder=" Add Social Link..." class="contact-email form-control" id="contact-email"/>
+			                        </div>
+			                        <button id="bt1" type="submit" class="btn">Add Link</button>
+			                        <a class="btn" href="review2.html" th:href="@{/review2}">View Links</a>
+			                        			                    
+		</form>
+		
+		
+		
+		
+		 <form th:fragment="forgetPasswordForm" th:action="@{/forgetpassword}" th:object="${}" method="post" >
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="contact-name">Forget Password, we will send you a reset password link in within email.</label>
+			                        	<input type="text" name="name"  placeholder="Customer name..." class="contact-email form-control" id="contact-email"/>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-subject">Email</label>
+			                        	<input type="text" name="email"  placeholder="Email..." class="contact-subject form-control" id="contact-subject"/>
+			                        </div>
+
+			                        <button type="submit" class="btn">Send message</button>
+		</form>
+		
+		
+		  <form th:fragment="review1Form" role="form"  th:action="@{api/formreview1}" th:object="${Review1}" method="get"> 
+			                   
+							 <div class="row">
+			                    	<div class="social-btns col-sm-6">
+			                    	<span class="li-social">
+								<a class="btn facebook" href="#"><i class="fa fa-facebook"></i></a> 	</span>
+			                    	</div>
+			                    	<div class="social-btns col-sm-6">
+			                    	<span class="li-social">
+								<a class="btn twitter" href="#"><i class="fa fa-twitter"></i></a> 	</span>	
+			                    	</div>
+			                    </div>
+			                    <div class="row">
+			                    	<div class="social-btns col-sm-6">
+			                    	<span class="li-social">
+								<a class="btn google" href="#"><i class="fa fa-google"></i></a> 	</span>
+			                    	</div>
+			                    	<div class="social-btns col-sm-6">
+			                    	<span class="li-social">
+								<a class="btn skype" href="#"><i class="fa fa-skype"></i></a> 	</span>	
+			                    	</div>
+			                    </div>
+			                    <input type="hidden" name="token" th:value="${token}"/>
+			                    
+										                 
+			                    </form>
+			                    
+			       <form th:fragment="review2Form" th:action="@{api/formreview2}" th:object="${Review2}" method="post" >
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="contact-name">Customer name</label>
+			                        	<input type="text" name="firstName"  placeholder="first name..." class="contact-email form-control" id="contact-email"/>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-subject">Email</label>
+			                        	<input type="text" name="lastName"  placeholder="last name..." class="contact-subject form-control" id="contact-subject"/>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="contact-subject">Comment</label>
+			                        	<input type="text" name="custExperiece"  placeholder="How was your experience..." class="contact-subject form-control" id="contact-subject"/>
+			                        </div>
+			                        <input type="hidden" name="token" th:value="${token}"/>
+			                        
+			                        <div class="mError" th:text="${status}"></div>
+			                        <button id="bt2" type="submit" class="btn">Send message</button>
+				</form>
+	</body>
+</html>
